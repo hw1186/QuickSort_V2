@@ -6,14 +6,15 @@ def quick_sort(arr):
         return arr
     pivot = arr[len(arr) // 2] 
 
+
     # 피벗 나누기 list Comprehension (Main Algorithm)
     left = [x for x in arr if x < pivot]
     middle = [x for x in arr if x == pivot]
     right = [x for x in arr if x > pivot] 
 
+    
 
     return quick_sort(left) + middle + quick_sort(right) 
-
 
 liner_ls = list(range(1, 1000001)) 
 worst_case = list(range(1, 1000001, -1))
@@ -21,11 +22,10 @@ worst_case = list(range(1, 1000001, -1))
 array = list(range(1, 1000001))
 random.shuffle(array)
 
-
 # Shuffle Case
-start_time = time.time()
+start_time = time.perf_counter()
 quick_sort(array)
-end_time = time.time()
+end_time = time.perf_counter()
 Shuffle_case = end_time - start_time
 print("Shuffle : ", Shuffle_case)
 
@@ -44,9 +44,8 @@ Liner_Q = end_time - start_time
 print("Liner_Q : ", Liner_Q)
 
 # Tim case
-start_time = time.time()
+start_time = time.perf_counter()
 array.sort()
-end_time = time.time()
+end_time = time.perf_counter()
 Tim_Time = end_time - start_time
 print("Timsort : ", Tim_Time)
-
